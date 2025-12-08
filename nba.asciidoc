@@ -1,0 +1,620 @@
++*In[7]:*+
+[source, ipython3]
+----
+import pandas as pd
+----
+
+
++*In[8]:*+
+[source, ipython3]
+----
+nba=pd.read_csv(r"C:\Users\anany\Downloads\nba - nba.csv")
+----
+
+
++*In[9]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[9]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|NaN
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 7 columns
+----
+
+
++*In[10]:*+
+[source, ipython3]
+----
+nba=pd.read_csv(r"C:\Users\anany\Downloads\nba - nba.csv")
+----
+
+
++*In[11]:*+
+[source, ipython3]
+----
+nba.sort_index()
+----
+
+
++*Out[11]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|NaN
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 7 columns
+----
+
+
++*In[12]:*+
+[source, ipython3]
+----
+nba.sort_index(ascending=False)
+----
+
+
++*Out[12]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|NaN
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|... |... |... |... |... |... |... |...
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+|===
+
+591 rows × 7 columns
+----
+
+
++*In[13]:*+
+[source, ipython3]
+----
+nba.sort_values('Name',ascending=False)
+----
+
+
++*Out[13]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|370 |Zion Williamson |New Orleans Pelicans |F |6-6 |284.0 |Duke
+|34005250.0
+
+|291 |Ziaire Williams |Memphis Grizzlies |F |6-9 |185.0 |Stanford
+|4810200.0
+
+|149 |Zeke Nnaji |Denver Nuggets |F-C |6-9 |240.0 |Arizona |4306281.0
+
+|83 |Zach LaVine |Chicago Bulls |G |6-5 |200.0 |UCLA |40064220.0
+
+|515 |Zach Collins |San Antonio Spurs |F-C |6-11 |250.0 |Gonzaga
+|7700000.0
+
+|... |... |... |... |... |... |... |...
+
+|198 |Aaron Holiday |Houston Rockets |G |6-0 |185.0 |UCLA |2346614.0
+
+|141 |Aaron Gordon |Denver Nuggets |F |6-8 |235.0 |Arizona |22266182.0
+
+|6 |AJ Griffin |Atlanta Hawks |F |6-6 |220.0 |Duke |3712920.0
+
+|324 |AJ Green |Milwaukee Bucks |G |6-5 |190.0 |Northern Iowa |1901769.0
+
+|122 |A.J. Lawson |Dallas Mavericks |G |6-6 |179.0 |South Carolina |NaN
+|===
+
+591 rows × 7 columns
+----
+
+
++*In[14]:*+
+[source, ipython3]
+----
+nba=pd.read_csv(r"C:\Users\anany\Downloads\nba - nba.csv",index_col="Name")
+----
+
+
++*In[15]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[15]:*+
+----
+[cols=",,,,,,",options="header",]
+|===
+| |Team |Position |Height |Weight |College |Salary
+|Name | | | | | |
+
+|Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce |18700000.0
+
+|Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |...
+
+|Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan |27955357.0
+
+|Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid |NaN
+
+|Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 6 columns
+----
+
+
++*In[16]:*+
+[source, ipython3]
+----
+import pandas as pd
+----
+
+
++*In[17]:*+
+[source, ipython3]
+----
+nba=pd.read_csv(r"C:\Users\anany\Downloads\nba - nba.csv",index_col="Name")
+----
+
+
++*In[18]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[18]:*+
+----
+[cols=",,,,,,",options="header",]
+|===
+| |Team |Position |Height |Weight |College |Salary
+|Name | | | | | |
+
+|Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce |18700000.0
+
+|Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |...
+
+|Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan |27955357.0
+
+|Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid |NaN
+
+|Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 6 columns
+----
+
+
++*In[19]:*+
+[source, ipython3]
+----
+nba["Salary"]*2
+----
+
+
++*Out[19]:*+
+----Name
+Saddiq Bey            9113966.0
+Bogdan Bogdanovic    37400000.0
+Kobe Bufkin           8188488.0
+Clint Capela         41232000.0
+Bruno Fernando        5163044.0
+                        ...    
+Jordan Poole         55910714.0
+Ryan Rollins          3439728.0
+Landry Shamet        20500000.0
+Tristan Vukcevic            NaN
+Delon Wright         16390244.0
+Name: Salary, Length: 591, dtype: float64----
+
+
++*In[20]:*+
+[source, ipython3]
+----
+DS=nba["Salary"]*2
+----
+
+
++*In[21]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[21]:*+
+----
+[cols=",,,,,,",options="header",]
+|===
+| |Team |Position |Height |Weight |College |Salary
+|Name | | | | | |
+
+|Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce |18700000.0
+
+|Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |...
+
+|Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan |27955357.0
+
+|Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid |NaN
+
+|Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 6 columns
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
+
+
++*In[22]:*+
+[source, ipython3]
+----
+import pandas as pd
+----
+
+
++*In[25]:*+
+[source, ipython3]
+----
+nba=pd.read_csv(r"C:\Users\anany\Downloads\nba - nba.csv",index_col="Name")
+----
+
+
++*In[24]:*+
+[source, ipython3]
+----
+nba[['feet','inch']]=nba['Height].str.split('-', expand=True)
+----
+
+
++*Out[24]:*+
+----
+
+      Cell In[24], line 1
+        nba[['feet','inch']]=nba['Height].str.split('-', expand=True)
+                                                      ^
+    SyntaxError: unterminated string literal (detected at line 1)
+    
+
+----
+
+
++*In[26]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[26]:*+
+----
+[cols=",,,,,,",options="header",]
+|===
+| |Team |Position |Height |Weight |College |Salary
+|Name | | | | | |
+
+|Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce |18700000.0
+
+|Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |...
+
+|Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan |27955357.0
+
+|Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid |NaN
+
+|Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 6 columns
+----
+
+
++*In[30]:*+
+[source, ipython3]
+----
+nba[['feet','inch']]=nba['Height'].str.split('-',expand=True)
+----
+
+
++*In[31]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[31]:*+
+----
+[cols=",,,,,,,,",options="header",]
+|===
+| |Team |Position |Height |Weight |College |Salary |feet |inch
+|Name | | | | | | | |
+
+|Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0 |6 |7
+
+|Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce |18700000.0
+|6 |5
+
+|Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0 |6 |5
+
+|Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0 |6
+|10
+
+|Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0 |6
+|10
+
+|... |... |... |... |... |... |... |... |...
+
+|Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan |27955357.0
+|6 |4
+
+|Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0 |6
+|3
+
+|Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0 |6 |4
+
+|Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid |NaN
+|6 |10
+
+|Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0 |6 |5
+|===
+
+591 rows × 8 columns
+----
+
+
++*In[33]:*+
+[source, ipython3]
+----
+nba[['feet','inch']]=nba['Height'].str.split('-',expand=True).apply(pd.to_numeric)
+----
+
+
++*In[34]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[34]:*+
+----
+[cols=",,,,,,,,",options="header",]
+|===
+| |Team |Position |Height |Weight |College |Salary |feet |inch
+|Name | | | | | | | |
+
+|Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0 |6.0
+|7.0
+
+|Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce |18700000.0
+|6.0 |5.0
+
+|Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0 |6.0
+|5.0
+
+|Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+|6.0 |10.0
+
+|Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+|6.0 |10.0
+
+|... |... |... |... |... |... |... |... |...
+
+|Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan |27955357.0
+|6.0 |4.0
+
+|Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0 |6.0
+|3.0
+
+|Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0 |6.0 |4.0
+
+|Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid |NaN
+|6.0 |10.0
+
+|Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0 |6.0
+|5.0
+|===
+
+591 rows × 8 columns
+----
+
+
++*In[36]:*+
+[source, ipython3]
+----
+nba['feet']*30.48+nba['inch']*2.54
+----
+
+
++*Out[36]:*+
+----Name
+Saddiq Bey           200.66
+Bogdan Bogdanovic    195.58
+Kobe Bufkin          195.58
+Clint Capela         208.28
+Bruno Fernando       208.28
+                      ...  
+Jordan Poole         193.04
+Ryan Rollins         190.50
+Landry Shamet        193.04
+Tristan Vukcevic     208.28
+Delon Wright         195.58
+Length: 591, dtype: float64----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
