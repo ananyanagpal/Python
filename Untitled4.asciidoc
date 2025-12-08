@@ -1,0 +1,2590 @@
++*In[1]:*+
+[source, ipython3]
+----
+import pandas as pd
+----
+
+
++*In[2]:*+
+[source, ipython3]
+----
+ice_cream=["Strawberry","Chocolate","Vanilla","TuttiFrutti"]
+----
+
+
++*In[3]:*+
+[source, ipython3]
+----
+pd.Series(ice_cream)
+----
+
+
++*Out[3]:*+
+----0     Strawberry
+1      Chocolate
+2        Vanilla
+3    TuttiFrutti
+dtype: object----
+
+
++*In[4]:*+
+[source, ipython3]
+----
+lottery_number=[12,45,67,89,9]
+pd.Series(lottery_number)
+----
+
+
++*Out[4]:*+
+----0    12
+1    45
+2    67
+3    89
+4     9
+dtype: int64----
+
+
++*In[5]:*+
+[source, ipython3]
+----
+sushi={"Salmon":"Orange","Tuna":"Red","Eel":"Brown"}
+----
+
+
++*In[6]:*+
+[source, ipython3]
+----
+pd.Series(sushi)
+----
+
+
++*Out[6]:*+
+----Salmon    Orange
+Tuna         Red
+Eel        Brown
+dtype: object----
+
+
++*In[7]:*+
+[source, ipython3]
+----
+price=pd.Series([23.5,45,78,2,5])
+----
+
+
++*In[8]:*+
+[source, ipython3]
+----
+price
+----
+
+
++*Out[8]:*+
+----0    23.5
+1    45.0
+2    78.0
+3     2.0
+4     5.0
+dtype: float64----
+
+
++*In[9]:*+
+[source, ipython3]
+----
+price.sum()
+----
+
+
++*Out[9]:*+
+----np.float64(153.5)----
+
+
++*In[10]:*+
+[source, ipython3]
+----
+price.mean()
+----
+
+
++*Out[10]:*+
+----np.float64(30.7)----
+
+
++*In[11]:*+
+[source, ipython3]
+----
+price.product()
+----
+
+
++*Out[11]:*+
+----np.float64(824850.0)----
+
+
++*In[12]:*+
+[source, ipython3]
+----
+price.std()
+----
+
+
++*Out[12]:*+
+----31.53490129998824----
+
+
++*In[13]:*+
+[source, ipython3]
+----
+adjectives=pd.Series(["Beautiful","Smart","Intelligent","Cute"])
+----
+
+
++*In[14]:*+
+[source, ipython3]
+----
+adjectives
+----
+
+
++*Out[14]:*+
+----0      Beautiful
+1          Smart
+2    Intelligent
+3           Cute
+dtype: object----
+
+
++*In[15]:*+
+[source, ipython3]
+----
+adjectives.size
+----
+
+
++*Out[15]:*+
+----4----
+
+
++*In[16]:*+
+[source, ipython3]
+----
+adjectives.values
+----
+
+
++*Out[16]:*+
+----array(['Beautiful', 'Smart', 'Intelligent', 'Cute'], dtype=object)----
+
+
++*In[18]:*+
+[source, ipython3]
+----
+adjectives.is_unique
+----
+
+
++*Out[18]:*+
+----True----
+
+
++*In[19]:*+
+[source, ipython3]
+----
+type(adjectives.values)
+----
+
+
++*Out[19]:*+
+----numpy.ndarray----
+
+
++*In[20]:*+
+[source, ipython3]
+----
+weekdays=["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
+fruits=["apple","banana","orange","litchi","mango","watermelon","strawberry"]
+----
+
+
++*In[21]:*+
+[source, ipython3]
+----
+pd.Series(weekdays,fruits)
+----
+
+
++*Out[21]:*+
+----apple            monday
+banana          tuesday
+orange        wednesday
+litchi         thursday
+mango            friday
+watermelon     saturday
+strawberry       sunday
+dtype: object----
+
+
++*In[22]:*+
+[source, ipython3]
+----
+pd.Series(fruits,weekdays)
+----
+
+
++*Out[22]:*+
+----monday            apple
+tuesday          banana
+wednesday        orange
+thursday         litchi
+friday            mango
+saturday     watermelon
+sunday       strawberry
+dtype: object----
+
+
++*In[2]:*+
+[source, ipython3]
+----
+import pandas as pd
+----
+
+
++*In[3]:*+
+[source, ipython3]
+----
+pokemon=pd.read_csv(r"C:\Users\anany\Downloads\pokemon - pokemon.csv")
+----
+
+
++*In[4]:*+
+[source, ipython3]
+----
+pokemon
+----
+
+
++*Out[4]:*+
+----
+[cols=",,",options="header",]
+|===
+| |Name |Type
+|0 |Bulbasaur |Grass, Poison
+|1 |Ivysaur |Grass, Poison
+|2 |Venusaur |Grass, Poison
+|3 |Charmander |Fire
+|4 |Charmeleon |Fire
+|... |... |...
+|1005 |Iron Valiant |Fairy, Fighting
+|1006 |Koraidon |Fighting, Dragon
+|1007 |Miraidon |Electric, Dragon
+|1008 |Walking Wake |Water, Dragon
+|1009 |Iron Leaves |Grass, Psychic
+|===
+
+1010 rows × 2 columns
+----
+
+
++*In[11]:*+
+[source, ipython3]
+----
+pokemon1=pd.read_csv(r"C:\Users\anany\Downloads\pokemon - pokemon.csv",usecols=['Name']).squeeze('columns')
+----
+
+
++*In[9]:*+
+[source, ipython3]
+----
+pokemon1
+----
+
+
++*Out[9]:*+
+----
+[cols=",",options="header",]
+|===
+| |Name
+|0 |Bulbasaur
+|1 |Ivysaur
+|2 |Venusaur
+|3 |Charmander
+|4 |Charmeleon
+|... |...
+|1005 |Iron Valiant
+|1006 |Koraidon
+|1007 |Miraidon
+|1008 |Walking Wake
+|1009 |Iron Leaves
+|===
+
+1010 rows × 1 columns
+----
+
+
++*In[13]:*+
+[source, ipython3]
+----
+len(pokemon)
+----
+
+
++*Out[13]:*+
+----1010----
+
+
++*In[17]:*+
+[source, ipython3]
+----
+list(pokemon1)
+----
+
+
++*Out[17]:*+
+----['Bulbasaur',
+ 'Ivysaur',
+ 'Venusaur',
+ 'Charmander',
+ 'Charmeleon',
+ 'Charizard',
+ 'Squirtle',
+ 'Wartortle',
+ 'Blastoise',
+ 'Caterpie',
+ 'Metapod',
+ 'Butterfree',
+ 'Weedle',
+ 'Kakuna',
+ 'Beedrill',
+ 'Pidgey',
+ 'Pidgeotto',
+ 'Pidgeot',
+ 'Rattata',
+ 'Raticate',
+ 'Spearow',
+ 'Fearow',
+ 'Ekans',
+ 'Arbok',
+ 'Pikachu',
+ 'Raichu',
+ 'Sandshrew',
+ 'Sandslash',
+ 'Nidoran♀',
+ 'Nidorina',
+ 'Nidoqueen',
+ 'Nidoran♂',
+ 'Nidorino',
+ 'Nidoking',
+ 'Clefairy',
+ 'Clefable',
+ 'Vulpix',
+ 'Ninetales',
+ 'Jigglypuff',
+ 'Wigglytuff',
+ 'Zubat',
+ 'Golbat',
+ 'Oddish',
+ 'Gloom',
+ 'Vileplume',
+ 'Paras',
+ 'Parasect',
+ 'Venonat',
+ 'Venomoth',
+ 'Diglett',
+ 'Dugtrio',
+ 'Meowth',
+ 'Persian',
+ 'Psyduck',
+ 'Golduck',
+ 'Mankey',
+ 'Primeape',
+ 'Growlithe',
+ 'Arcanine',
+ 'Poliwag',
+ 'Poliwhirl',
+ 'Poliwrath',
+ 'Abra',
+ 'Kadabra',
+ 'Alakazam',
+ 'Machop',
+ 'Machoke',
+ 'Machamp',
+ 'Bellsprout',
+ 'Weepinbell',
+ 'Victreebel',
+ 'Tentacool',
+ 'Tentacruel',
+ 'Geodude',
+ 'Graveler',
+ 'Golem',
+ 'Ponyta',
+ 'Rapidash',
+ 'Slowpoke',
+ 'Slowbro',
+ 'Magnemite',
+ 'Magneton',
+ 'Farfetch’d',
+ 'Doduo',
+ 'Dodrio',
+ 'Seel',
+ 'Dewgong',
+ 'Grimer',
+ 'Muk',
+ 'Shellder',
+ 'Cloyster',
+ 'Gastly',
+ 'Haunter',
+ 'Gengar',
+ 'Onix',
+ 'Drowzee',
+ 'Hypno',
+ 'Krabby',
+ 'Kingler',
+ 'Voltorb',
+ 'Electrode',
+ 'Exeggcute',
+ 'Exeggutor',
+ 'Cubone',
+ 'Marowak',
+ 'Hitmonlee',
+ 'Hitmonchan',
+ 'Lickitung',
+ 'Koffing',
+ 'Weezing',
+ 'Rhyhorn',
+ 'Rhydon',
+ 'Chansey',
+ 'Tangela',
+ 'Kangaskhan',
+ 'Horsea',
+ 'Seadra',
+ 'Goldeen',
+ 'Seaking',
+ 'Staryu',
+ 'Starmie',
+ 'Mr. Mime',
+ 'Scyther',
+ 'Jynx',
+ 'Electabuzz',
+ 'Magmar',
+ 'Pinsir',
+ 'Tauros',
+ 'Magikarp',
+ 'Gyarados',
+ 'Lapras',
+ 'Ditto',
+ 'Eevee',
+ 'Vaporeon',
+ 'Jolteon',
+ 'Flareon',
+ 'Porygon',
+ 'Omanyte',
+ 'Omastar',
+ 'Kabuto',
+ 'Kabutops',
+ 'Aerodactyl',
+ 'Snorlax',
+ 'Articuno',
+ 'Zapdos',
+ 'Moltres',
+ 'Dratini',
+ 'Dragonair',
+ 'Dragonite',
+ 'Mewtwo',
+ 'Mew',
+ 'Chikorita',
+ 'Bayleef',
+ 'Meganium',
+ 'Cyndaquil',
+ 'Quilava',
+ 'Typhlosion',
+ 'Totodile',
+ 'Croconaw',
+ 'Feraligatr',
+ 'Sentret',
+ 'Furret',
+ 'Hoothoot',
+ 'Noctowl',
+ 'Ledyba',
+ 'Ledian',
+ 'Spinarak',
+ 'Ariados',
+ 'Crobat',
+ 'Chinchou',
+ 'Lanturn',
+ 'Pichu',
+ 'Cleffa',
+ 'Igglybuff',
+ 'Togepi',
+ 'Togetic',
+ 'Natu',
+ 'Xatu',
+ 'Mareep',
+ 'Flaaffy',
+ 'Ampharos',
+ 'Bellossom',
+ 'Marill',
+ 'Azumarill',
+ 'Sudowoodo',
+ 'Politoed',
+ 'Hoppip',
+ 'Skiploom',
+ 'Jumpluff',
+ 'Aipom',
+ 'Sunkern',
+ 'Sunflora',
+ 'Yanma',
+ 'Wooper',
+ 'Quagsire',
+ 'Espeon',
+ 'Umbreon',
+ 'Murkrow',
+ 'Slowking',
+ 'Misdreavus',
+ 'Unown',
+ 'Wobbuffet',
+ 'Girafarig',
+ 'Pineco',
+ 'Forretress',
+ 'Dunsparce',
+ 'Gligar',
+ 'Steelix',
+ 'Snubbull',
+ 'Granbull',
+ 'Qwilfish',
+ 'Scizor',
+ 'Shuckle',
+ 'Heracross',
+ 'Sneasel',
+ 'Teddiursa',
+ 'Ursaring',
+ 'Slugma',
+ 'Magcargo',
+ 'Swinub',
+ 'Piloswine',
+ 'Corsola',
+ 'Remoraid',
+ 'Octillery',
+ 'Delibird',
+ 'Mantine',
+ 'Skarmory',
+ 'Houndour',
+ 'Houndoom',
+ 'Kingdra',
+ 'Phanpy',
+ 'Donphan',
+ 'Porygon2',
+ 'Stantler',
+ 'Smeargle',
+ 'Tyrogue',
+ 'Hitmontop',
+ 'Smoochum',
+ 'Elekid',
+ 'Magby',
+ 'Miltank',
+ 'Blissey',
+ 'Raikou',
+ 'Entei',
+ 'Suicune',
+ 'Larvitar',
+ 'Pupitar',
+ 'Tyranitar',
+ 'Lugia',
+ 'Ho-Oh',
+ 'Celebi',
+ 'Treecko',
+ 'Grovyle',
+ 'Sceptile',
+ 'Torchic',
+ 'Combusken',
+ 'Blaziken',
+ 'Mudkip',
+ 'Marshtomp',
+ 'Swampert',
+ 'Poochyena',
+ 'Mightyena',
+ 'Zigzagoon',
+ 'Linoone',
+ 'Wurmple',
+ 'Silcoon',
+ 'Beautifly',
+ 'Cascoon',
+ 'Dustox',
+ 'Lotad',
+ 'Lombre',
+ 'Ludicolo',
+ 'Seedot',
+ 'Nuzleaf',
+ 'Shiftry',
+ 'Taillow',
+ 'Swellow',
+ 'Wingull',
+ 'Pelipper',
+ 'Ralts',
+ 'Kirlia',
+ 'Gardevoir',
+ 'Surskit',
+ 'Masquerain',
+ 'Shroomish',
+ 'Breloom',
+ 'Slakoth',
+ 'Vigoroth',
+ 'Slaking',
+ 'Nincada',
+ 'Ninjask',
+ 'Shedinja',
+ 'Whismur',
+ 'Loudred',
+ 'Exploud',
+ 'Makuhita',
+ 'Hariyama',
+ 'Azurill',
+ 'Nosepass',
+ 'Skitty',
+ 'Delcatty',
+ 'Sableye',
+ 'Mawile',
+ 'Aron',
+ 'Lairon',
+ 'Aggron',
+ 'Meditite',
+ 'Medicham',
+ 'Electrike',
+ 'Manectric',
+ 'Plusle',
+ 'Minun',
+ 'Volbeat',
+ 'Illumise',
+ 'Roselia',
+ 'Gulpin',
+ 'Swalot',
+ 'Carvanha',
+ 'Sharpedo',
+ 'Wailmer',
+ 'Wailord',
+ 'Numel',
+ 'Camerupt',
+ 'Torkoal',
+ 'Spoink',
+ 'Grumpig',
+ 'Spinda',
+ 'Trapinch',
+ 'Vibrava',
+ 'Flygon',
+ 'Cacnea',
+ 'Cacturne',
+ 'Swablu',
+ 'Altaria',
+ 'Zangoose',
+ 'Seviper',
+ 'Lunatone',
+ 'Solrock',
+ 'Barboach',
+ 'Whiscash',
+ 'Corphish',
+ 'Crawdaunt',
+ 'Baltoy',
+ 'Claydol',
+ 'Lileep',
+ 'Cradily',
+ 'Anorith',
+ 'Armaldo',
+ 'Feebas',
+ 'Milotic',
+ 'Castform',
+ 'Kecleon',
+ 'Shuppet',
+ 'Banette',
+ 'Duskull',
+ 'Dusclops',
+ 'Tropius',
+ 'Chimecho',
+ 'Absol',
+ 'Wynaut',
+ 'Snorunt',
+ 'Glalie',
+ 'Spheal',
+ 'Sealeo',
+ 'Walrein',
+ 'Clamperl',
+ 'Huntail',
+ 'Gorebyss',
+ 'Relicanth',
+ 'Luvdisc',
+ 'Bagon',
+ 'Shelgon',
+ 'Salamence',
+ 'Beldum',
+ 'Metang',
+ 'Metagross',
+ 'Regirock',
+ 'Regice',
+ 'Registeel',
+ 'Latias',
+ 'Latios',
+ 'Kyogre',
+ 'Groudon',
+ 'Rayquaza',
+ 'Jirachi',
+ 'Deoxys',
+ 'Turtwig',
+ 'Grotle',
+ 'Torterra',
+ 'Chimchar',
+ 'Monferno',
+ 'Infernape',
+ 'Piplup',
+ 'Prinplup',
+ 'Empoleon',
+ 'Starly',
+ 'Staravia',
+ 'Staraptor',
+ 'Bidoof',
+ 'Bibarel',
+ 'Kricketot',
+ 'Kricketune',
+ 'Shinx',
+ 'Luxio',
+ 'Luxray',
+ 'Budew',
+ 'Roserade',
+ 'Cranidos',
+ 'Rampardos',
+ 'Shieldon',
+ 'Bastiodon',
+ 'Burmy',
+ 'Wormadam',
+ 'Mothim',
+ 'Combee',
+ 'Vespiquen',
+ 'Pachirisu',
+ 'Buizel',
+ 'Floatzel',
+ 'Cherubi',
+ 'Cherrim',
+ 'Shellos',
+ 'Gastrodon',
+ 'Ambipom',
+ 'Drifloon',
+ 'Drifblim',
+ 'Buneary',
+ 'Lopunny',
+ 'Mismagius',
+ 'Honchkrow',
+ 'Glameow',
+ 'Purugly',
+ 'Chingling',
+ 'Stunky',
+ 'Skuntank',
+ 'Bronzor',
+ 'Bronzong',
+ 'Bonsly',
+ 'Mime Jr.',
+ 'Happiny',
+ 'Chatot',
+ 'Spiritomb',
+ 'Gible',
+ 'Gabite',
+ 'Garchomp',
+ 'Munchlax',
+ 'Riolu',
+ 'Lucario',
+ 'Hippopotas',
+ 'Hippowdon',
+ 'Skorupi',
+ 'Drapion',
+ 'Croagunk',
+ 'Toxicroak',
+ 'Carnivine',
+ 'Finneon',
+ 'Lumineon',
+ 'Mantyke',
+ 'Snover',
+ 'Abomasnow',
+ 'Weavile',
+ 'Magnezone',
+ 'Lickilicky',
+ 'Rhyperior',
+ 'Tangrowth',
+ 'Electivire',
+ 'Magmortar',
+ 'Togekiss',
+ 'Yanmega',
+ 'Leafeon',
+ 'Glaceon',
+ 'Gliscor',
+ 'Mamoswine',
+ 'Porygon-Z',
+ 'Gallade',
+ 'Probopass',
+ 'Dusknoir',
+ 'Froslass',
+ 'Rotom',
+ 'Uxie',
+ 'Mesprit',
+ 'Azelf',
+ 'Dialga',
+ 'Palkia',
+ 'Heatran',
+ 'Regigigas',
+ 'Giratina',
+ 'Cresselia',
+ 'Phione',
+ 'Manaphy',
+ 'Darkrai',
+ 'Shaymin',
+ 'Arceus',
+ 'Victini',
+ 'Snivy',
+ 'Servine',
+ 'Serperior',
+ 'Tepig',
+ 'Pignite',
+ 'Emboar',
+ 'Oshawott',
+ 'Dewott',
+ 'Samurott',
+ 'Patrat',
+ 'Watchog',
+ 'Lillipup',
+ 'Herdier',
+ 'Stoutland',
+ 'Purrloin',
+ 'Liepard',
+ 'Pansage',
+ 'Simisage',
+ 'Pansear',
+ 'Simisear',
+ 'Panpour',
+ 'Simipour',
+ 'Munna',
+ 'Musharna',
+ 'Pidove',
+ 'Tranquill',
+ 'Unfezant',
+ 'Blitzle',
+ 'Zebstrika',
+ 'Roggenrola',
+ 'Boldore',
+ 'Gigalith',
+ 'Woobat',
+ 'Swoobat',
+ 'Drilbur',
+ 'Excadrill',
+ 'Audino',
+ 'Timburr',
+ 'Gurdurr',
+ 'Conkeldurr',
+ 'Tympole',
+ 'Palpitoad',
+ 'Seismitoad',
+ 'Throh',
+ 'Sawk',
+ 'Sewaddle',
+ 'Swadloon',
+ 'Leavanny',
+ 'Venipede',
+ 'Whirlipede',
+ 'Scolipede',
+ 'Cottonee',
+ 'Whimsicott',
+ 'Petilil',
+ 'Lilligant',
+ 'Basculin',
+ 'Sandile',
+ 'Krokorok',
+ 'Krookodile',
+ 'Darumaka',
+ 'Darmanitan',
+ 'Maractus',
+ 'Dwebble',
+ 'Crustle',
+ 'Scraggy',
+ 'Scrafty',
+ 'Sigilyph',
+ 'Yamask',
+ 'Cofagrigus',
+ 'Tirtouga',
+ 'Carracosta',
+ 'Archen',
+ 'Archeops',
+ 'Trubbish',
+ 'Garbodor',
+ 'Zorua',
+ 'Zoroark',
+ 'Minccino',
+ 'Cinccino',
+ 'Gothita',
+ 'Gothorita',
+ 'Gothitelle',
+ 'Solosis',
+ 'Duosion',
+ 'Reuniclus',
+ 'Ducklett',
+ 'Swanna',
+ 'Vanillite',
+ 'Vanillish',
+ 'Vanilluxe',
+ 'Deerling',
+ 'Sawsbuck',
+ 'Emolga',
+ 'Karrablast',
+ 'Escavalier',
+ 'Foongus',
+ 'Amoonguss',
+ 'Frillish',
+ 'Jellicent',
+ 'Alomomola',
+ 'Joltik',
+ 'Galvantula',
+ 'Ferroseed',
+ 'Ferrothorn',
+ 'Klink',
+ 'Klang',
+ 'Klinklang',
+ 'Tynamo',
+ 'Eelektrik',
+ 'Eelektross',
+ 'Elgyem',
+ 'Beheeyem',
+ 'Litwick',
+ 'Lampent',
+ 'Chandelure',
+ 'Axew',
+ 'Fraxure',
+ 'Haxorus',
+ 'Cubchoo',
+ 'Beartic',
+ 'Cryogonal',
+ 'Shelmet',
+ 'Accelgor',
+ 'Stunfisk',
+ 'Mienfoo',
+ 'Mienshao',
+ 'Druddigon',
+ 'Golett',
+ 'Golurk',
+ 'Pawniard',
+ 'Bisharp',
+ 'Bouffalant',
+ 'Rufflet',
+ 'Braviary',
+ 'Vullaby',
+ 'Mandibuzz',
+ 'Heatmor',
+ 'Durant',
+ 'Deino',
+ 'Zweilous',
+ 'Hydreigon',
+ 'Larvesta',
+ 'Volcarona',
+ 'Cobalion',
+ 'Terrakion',
+ 'Virizion',
+ 'Tornadus',
+ 'Thundurus',
+ 'Reshiram',
+ 'Zekrom',
+ 'Landorus',
+ 'Kyurem',
+ 'Keldeo',
+ 'Meloetta',
+ 'Genesect',
+ 'Chespin',
+ 'Quilladin',
+ 'Chesnaught',
+ 'Fennekin',
+ 'Braixen',
+ 'Delphox',
+ 'Froakie',
+ 'Frogadier',
+ 'Greninja',
+ 'Bunnelby',
+ 'Diggersby',
+ 'Fletchling',
+ 'Fletchinder',
+ 'Talonflame',
+ 'Scatterbug',
+ 'Spewpa',
+ 'Vivillon',
+ 'Litleo',
+ 'Pyroar',
+ 'Flabébé',
+ 'Floette',
+ 'Florges',
+ 'Skiddo',
+ 'Gogoat',
+ 'Pancham',
+ 'Pangoro',
+ 'Furfrou',
+ 'Espurr',
+ 'Meowstic',
+ 'Honedge',
+ 'Doublade',
+ 'Aegislash',
+ 'Spritzee',
+ 'Aromatisse',
+ 'Swirlix',
+ 'Slurpuff',
+ 'Inkay',
+ 'Malamar',
+ 'Binacle',
+ 'Barbaracle',
+ 'Skrelp',
+ 'Dragalge',
+ 'Clauncher',
+ 'Clawitzer',
+ 'Helioptile',
+ 'Heliolisk',
+ 'Tyrunt',
+ 'Tyrantrum',
+ 'Amaura',
+ 'Aurorus',
+ 'Sylveon',
+ 'Hawlucha',
+ 'Dedenne',
+ 'Carbink',
+ 'Goomy',
+ 'Sliggoo',
+ 'Goodra',
+ 'Klefki',
+ 'Phantump',
+ 'Trevenant',
+ 'Pumpkaboo',
+ 'Gourgeist',
+ 'Bergmite',
+ 'Avalugg',
+ 'Noibat',
+ 'Noivern',
+ 'Xerneas',
+ 'Yveltal',
+ 'Zygarde',
+ 'Diancie',
+ 'Hoopa',
+ 'Volcanion',
+ 'Rowlet',
+ 'Dartrix',
+ 'Decidueye',
+ 'Litten',
+ 'Torracat',
+ 'Incineroar',
+ 'Popplio',
+ 'Brionne',
+ 'Primarina',
+ 'Pikipek',
+ 'Trumbeak',
+ 'Toucannon',
+ 'Yungoos',
+ 'Gumshoos',
+ 'Grubbin',
+ 'Charjabug',
+ 'Vikavolt',
+ 'Crabrawler',
+ 'Crabominable',
+ 'Oricorio',
+ 'Cutiefly',
+ 'Ribombee',
+ 'Rockruff',
+ 'Lycanroc',
+ 'Wishiwashi',
+ 'Mareanie',
+ 'Toxapex',
+ 'Mudbray',
+ 'Mudsdale',
+ 'Dewpider',
+ 'Araquanid',
+ 'Fomantis',
+ 'Lurantis',
+ 'Morelull',
+ 'Shiinotic',
+ 'Salandit',
+ 'Salazzle',
+ 'Stufful',
+ 'Bewear',
+ 'Bounsweet',
+ 'Steenee',
+ 'Tsareena',
+ 'Comfey',
+ 'Oranguru',
+ 'Passimian',
+ 'Wimpod',
+ 'Golisopod',
+ 'Sandygast',
+ 'Palossand',
+ 'Pyukumuku',
+ 'Type: Null',
+ 'Silvally',
+ 'Minior',
+ 'Komala',
+ 'Turtonator',
+ 'Togedemaru',
+ 'Mimikyu',
+ 'Bruxish',
+ 'Drampa',
+ 'Dhelmise',
+ 'Jangmo-o',
+ 'Hakamo-o',
+ 'Kommo-o',
+ 'Tapu Koko',
+ 'Tapu Lele',
+ 'Tapu Bulu',
+ 'Tapu Fini',
+ 'Cosmog',
+ 'Cosmoem',
+ 'Solgaleo',
+ 'Lunala',
+ 'Nihilego',
+ 'Buzzwole',
+ 'Pheromosa',
+ 'Xurkitree',
+ 'Celesteela',
+ 'Kartana',
+ 'Guzzlord',
+ 'Necrozma',
+ 'Magearna',
+ 'Marshadow',
+ 'Poipole',
+ 'Naganadel',
+ 'Stakataka',
+ 'Blacephalon',
+ 'Zeraora',
+ 'Meltan',
+ 'Melmetal',
+ 'Grookey',
+ 'Thwackey',
+ 'Rillaboom',
+ 'Scorbunny',
+ 'Raboot',
+ 'Cinderace',
+ 'Sobble',
+ 'Drizzile',
+ 'Inteleon',
+ 'Skwovet',
+ 'Greedent',
+ 'Rookidee',
+ 'Corvisquire',
+ 'Corviknight',
+ 'Blipbug',
+ 'Dottler',
+ 'Orbeetle',
+ 'Nickit',
+ 'Thievul',
+ 'Gossifleur',
+ 'Eldegoss',
+ 'Wooloo',
+ 'Dubwool',
+ 'Chewtle',
+ 'Drednaw',
+ 'Yamper',
+ 'Boltund',
+ 'Rolycoly',
+ 'Carkol',
+ 'Coalossal',
+ 'Applin',
+ 'Flapple',
+ 'Appletun',
+ 'Silicobra',
+ 'Sandaconda',
+ 'Cramorant',
+ 'Arrokuda',
+ 'Barraskewda',
+ 'Toxel',
+ 'Toxtricity',
+ 'Sizzlipede',
+ 'Centiskorch',
+ 'Clobbopus',
+ 'Grapploct',
+ 'Sinistea',
+ 'Polteageist',
+ 'Hatenna',
+ 'Hattrem',
+ 'Hatterene',
+ 'Impidimp',
+ 'Morgrem',
+ 'Grimmsnarl',
+ 'Obstagoon',
+ 'Perrserker',
+ 'Cursola',
+ 'Sirfetch’d',
+ 'Mr. Rime',
+ 'Runerigus',
+ 'Milcery',
+ 'Alcremie',
+ 'Falinks',
+ 'Pincurchin',
+ 'Snom',
+ 'Frosmoth',
+ 'Stonjourner',
+ 'Eiscue',
+ 'Indeedee',
+ 'Morpeko',
+ 'Cufant',
+ 'Copperajah',
+ 'Dracozolt',
+ 'Arctozolt',
+ 'Dracovish',
+ 'Arctovish',
+ 'Duraludon',
+ 'Dreepy',
+ 'Drakloak',
+ 'Dragapult',
+ 'Zacian',
+ 'Zamazenta',
+ 'Eternatus',
+ 'Kubfu',
+ 'Urshifu',
+ 'Zarude',
+ 'Regieleki',
+ 'Regidrago',
+ 'Glastrier',
+ 'Spectrier',
+ 'Calyrex',
+ 'Wyrdeer',
+ 'Kleavor',
+ 'Ursaluna',
+ 'Basculegion',
+ 'Sneasler',
+ 'Overqwil',
+ 'Enamorus',
+ 'Sprigatito',
+ 'Floragato',
+ 'Meowscarada',
+ 'Fuecoco',
+ 'Crocalor',
+ 'Skeledirge',
+ 'Quaxly',
+ 'Quaxwell',
+ 'Quaquaval',
+ 'Lechonk',
+ 'Oinkologne',
+ 'Tarountula',
+ 'Spidops',
+ 'Nymble',
+ 'Lokix',
+ 'Pawmi',
+ 'Pawmo',
+ 'Pawmot',
+ 'Tandemaus',
+ 'Maushold',
+ 'Fidough',
+ 'Dachsbun',
+ 'Smoliv',
+ 'Dolliv',
+ 'Arboliva',
+ 'Squawkabilly',
+ 'Nacli',
+ 'Naclstack',
+ 'Garganacl',
+ 'Charcadet',
+ 'Armarouge',
+ 'Ceruledge',
+ 'Tadbulb',
+ 'Bellibolt',
+ 'Wattrel',
+ 'Kilowattrel',
+ 'Maschiff',
+ 'Mabosstiff',
+ 'Shroodle',
+ 'Grafaiai',
+ 'Bramblin',
+ 'Brambleghast',
+ 'Toedscool',
+ 'Toedscruel',
+ 'Klawf',
+ 'Capsakid',
+ 'Scovillain',
+ 'Rellor',
+ 'Rabsca',
+ 'Flittle',
+ 'Espathra',
+ 'Tinkatink',
+ 'Tinkatuff',
+ 'Tinkaton',
+ 'Wiglett',
+ 'Wugtrio',
+ 'Bombirdier',
+ 'Finizen',
+ 'Palafin',
+ 'Varoom',
+ 'Revavroom',
+ 'Cyclizar',
+ 'Orthworm',
+ 'Glimmet',
+ 'Glimmora',
+ 'Greavard',
+ 'Houndstone',
+ 'Flamigo',
+ 'Cetoddle',
+ 'Cetitan',
+ 'Veluza',
+ 'Dondozo',
+ 'Tatsugiri',
+ 'Annihilape',
+ 'Clodsire',
+ 'Farigiraf',
+ 'Dudunsparce',
+ 'Kingambit',
+ 'Great Tusk',
+ 'Scream Tail',
+ 'Brute Bonnet',
+ 'Flutter Mane',
+ 'Slither Wing',
+ 'Sandy Shocks',
+ 'Iron Treads',
+ 'Iron Bundle',
+ 'Iron Hands',
+ 'Iron Jugulis',
+ 'Iron Moth',
+ 'Iron Thorns',
+ 'Frigibax',
+ 'Arctibax',
+ 'Baxcalibur',
+ 'Gimmighoul',
+ 'Gholdengo',
+ ...]----
+
+
++*In[16]:*+
+[source, ipython3]
+----
+sorted(pokemon1)
+----
+
+
++*Out[16]:*+
+----['Abomasnow',
+ 'Abra',
+ 'Absol',
+ 'Accelgor',
+ 'Aegislash',
+ 'Aerodactyl',
+ 'Aggron',
+ 'Aipom',
+ 'Alakazam',
+ 'Alcremie',
+ 'Alomomola',
+ 'Altaria',
+ 'Amaura',
+ 'Ambipom',
+ 'Amoonguss',
+ 'Ampharos',
+ 'Annihilape',
+ 'Anorith',
+ 'Appletun',
+ 'Applin',
+ 'Araquanid',
+ 'Arbok',
+ 'Arboliva',
+ 'Arcanine',
+ 'Arceus',
+ 'Archen',
+ 'Archeops',
+ 'Arctibax',
+ 'Arctovish',
+ 'Arctozolt',
+ 'Ariados',
+ 'Armaldo',
+ 'Armarouge',
+ 'Aromatisse',
+ 'Aron',
+ 'Arrokuda',
+ 'Articuno',
+ 'Audino',
+ 'Aurorus',
+ 'Avalugg',
+ 'Axew',
+ 'Azelf',
+ 'Azumarill',
+ 'Azurill',
+ 'Bagon',
+ 'Baltoy',
+ 'Banette',
+ 'Barbaracle',
+ 'Barboach',
+ 'Barraskewda',
+ 'Basculegion',
+ 'Basculin',
+ 'Bastiodon',
+ 'Baxcalibur',
+ 'Bayleef',
+ 'Beartic',
+ 'Beautifly',
+ 'Beedrill',
+ 'Beheeyem',
+ 'Beldum',
+ 'Bellibolt',
+ 'Bellossom',
+ 'Bellsprout',
+ 'Bergmite',
+ 'Bewear',
+ 'Bibarel',
+ 'Bidoof',
+ 'Binacle',
+ 'Bisharp',
+ 'Blacephalon',
+ 'Blastoise',
+ 'Blaziken',
+ 'Blipbug',
+ 'Blissey',
+ 'Blitzle',
+ 'Boldore',
+ 'Boltund',
+ 'Bombirdier',
+ 'Bonsly',
+ 'Bouffalant',
+ 'Bounsweet',
+ 'Braixen',
+ 'Brambleghast',
+ 'Bramblin',
+ 'Braviary',
+ 'Breloom',
+ 'Brionne',
+ 'Bronzong',
+ 'Bronzor',
+ 'Brute Bonnet',
+ 'Bruxish',
+ 'Budew',
+ 'Buizel',
+ 'Bulbasaur',
+ 'Buneary',
+ 'Bunnelby',
+ 'Burmy',
+ 'Butterfree',
+ 'Buzzwole',
+ 'Cacnea',
+ 'Cacturne',
+ 'Calyrex',
+ 'Camerupt',
+ 'Capsakid',
+ 'Carbink',
+ 'Carkol',
+ 'Carnivine',
+ 'Carracosta',
+ 'Carvanha',
+ 'Cascoon',
+ 'Castform',
+ 'Caterpie',
+ 'Celebi',
+ 'Celesteela',
+ 'Centiskorch',
+ 'Ceruledge',
+ 'Cetitan',
+ 'Cetoddle',
+ 'Chandelure',
+ 'Chansey',
+ 'Charcadet',
+ 'Charizard',
+ 'Charjabug',
+ 'Charmander',
+ 'Charmeleon',
+ 'Chatot',
+ 'Cherrim',
+ 'Cherubi',
+ 'Chesnaught',
+ 'Chespin',
+ 'Chewtle',
+ 'Chi-Yu',
+ 'Chien-Pao',
+ 'Chikorita',
+ 'Chimchar',
+ 'Chimecho',
+ 'Chinchou',
+ 'Chingling',
+ 'Cinccino',
+ 'Cinderace',
+ 'Clamperl',
+ 'Clauncher',
+ 'Clawitzer',
+ 'Claydol',
+ 'Clefable',
+ 'Clefairy',
+ 'Cleffa',
+ 'Clobbopus',
+ 'Clodsire',
+ 'Cloyster',
+ 'Coalossal',
+ 'Cobalion',
+ 'Cofagrigus',
+ 'Combee',
+ 'Combusken',
+ 'Comfey',
+ 'Conkeldurr',
+ 'Copperajah',
+ 'Corphish',
+ 'Corsola',
+ 'Corviknight',
+ 'Corvisquire',
+ 'Cosmoem',
+ 'Cosmog',
+ 'Cottonee',
+ 'Crabominable',
+ 'Crabrawler',
+ 'Cradily',
+ 'Cramorant',
+ 'Cranidos',
+ 'Crawdaunt',
+ 'Cresselia',
+ 'Croagunk',
+ 'Crobat',
+ 'Crocalor',
+ 'Croconaw',
+ 'Crustle',
+ 'Cryogonal',
+ 'Cubchoo',
+ 'Cubone',
+ 'Cufant',
+ 'Cursola',
+ 'Cutiefly',
+ 'Cyclizar',
+ 'Cyndaquil',
+ 'Dachsbun',
+ 'Darkrai',
+ 'Darmanitan',
+ 'Dartrix',
+ 'Darumaka',
+ 'Decidueye',
+ 'Dedenne',
+ 'Deerling',
+ 'Deino',
+ 'Delcatty',
+ 'Delibird',
+ 'Delphox',
+ 'Deoxys',
+ 'Dewgong',
+ 'Dewott',
+ 'Dewpider',
+ 'Dhelmise',
+ 'Dialga',
+ 'Diancie',
+ 'Diggersby',
+ 'Diglett',
+ 'Ditto',
+ 'Dodrio',
+ 'Doduo',
+ 'Dolliv',
+ 'Dondozo',
+ 'Donphan',
+ 'Dottler',
+ 'Doublade',
+ 'Dracovish',
+ 'Dracozolt',
+ 'Dragalge',
+ 'Dragapult',
+ 'Dragonair',
+ 'Dragonite',
+ 'Drakloak',
+ 'Drampa',
+ 'Drapion',
+ 'Dratini',
+ 'Drednaw',
+ 'Dreepy',
+ 'Drifblim',
+ 'Drifloon',
+ 'Drilbur',
+ 'Drizzile',
+ 'Drowzee',
+ 'Druddigon',
+ 'Dubwool',
+ 'Ducklett',
+ 'Dudunsparce',
+ 'Dugtrio',
+ 'Dunsparce',
+ 'Duosion',
+ 'Duraludon',
+ 'Durant',
+ 'Dusclops',
+ 'Dusknoir',
+ 'Duskull',
+ 'Dustox',
+ 'Dwebble',
+ 'Eelektrik',
+ 'Eelektross',
+ 'Eevee',
+ 'Eiscue',
+ 'Ekans',
+ 'Eldegoss',
+ 'Electabuzz',
+ 'Electivire',
+ 'Electrike',
+ 'Electrode',
+ 'Elekid',
+ 'Elgyem',
+ 'Emboar',
+ 'Emolga',
+ 'Empoleon',
+ 'Enamorus',
+ 'Entei',
+ 'Escavalier',
+ 'Espathra',
+ 'Espeon',
+ 'Espurr',
+ 'Eternatus',
+ 'Excadrill',
+ 'Exeggcute',
+ 'Exeggutor',
+ 'Exploud',
+ 'Falinks',
+ 'Farfetch’d',
+ 'Farigiraf',
+ 'Fearow',
+ 'Feebas',
+ 'Fennekin',
+ 'Feraligatr',
+ 'Ferroseed',
+ 'Ferrothorn',
+ 'Fidough',
+ 'Finizen',
+ 'Finneon',
+ 'Flaaffy',
+ 'Flabébé',
+ 'Flamigo',
+ 'Flapple',
+ 'Flareon',
+ 'Fletchinder',
+ 'Fletchling',
+ 'Flittle',
+ 'Floatzel',
+ 'Floette',
+ 'Floragato',
+ 'Florges',
+ 'Flutter Mane',
+ 'Flygon',
+ 'Fomantis',
+ 'Foongus',
+ 'Forretress',
+ 'Fraxure',
+ 'Frigibax',
+ 'Frillish',
+ 'Froakie',
+ 'Frogadier',
+ 'Froslass',
+ 'Frosmoth',
+ 'Fuecoco',
+ 'Furfrou',
+ 'Furret',
+ 'Gabite',
+ 'Gallade',
+ 'Galvantula',
+ 'Garbodor',
+ 'Garchomp',
+ 'Gardevoir',
+ 'Garganacl',
+ 'Gastly',
+ 'Gastrodon',
+ 'Genesect',
+ 'Gengar',
+ 'Geodude',
+ 'Gholdengo',
+ 'Gible',
+ 'Gigalith',
+ 'Gimmighoul',
+ 'Girafarig',
+ 'Giratina',
+ 'Glaceon',
+ 'Glalie',
+ 'Glameow',
+ 'Glastrier',
+ 'Gligar',
+ 'Glimmet',
+ 'Glimmora',
+ 'Gliscor',
+ 'Gloom',
+ 'Gogoat',
+ 'Golbat',
+ 'Goldeen',
+ 'Golduck',
+ 'Golem',
+ 'Golett',
+ 'Golisopod',
+ 'Golurk',
+ 'Goodra',
+ 'Goomy',
+ 'Gorebyss',
+ 'Gossifleur',
+ 'Gothita',
+ 'Gothitelle',
+ 'Gothorita',
+ 'Gourgeist',
+ 'Grafaiai',
+ 'Granbull',
+ 'Grapploct',
+ 'Graveler',
+ 'Great Tusk',
+ 'Greavard',
+ 'Greedent',
+ 'Greninja',
+ 'Grimer',
+ 'Grimmsnarl',
+ 'Grookey',
+ 'Grotle',
+ 'Groudon',
+ 'Grovyle',
+ 'Growlithe',
+ 'Grubbin',
+ 'Grumpig',
+ 'Gulpin',
+ 'Gumshoos',
+ 'Gurdurr',
+ 'Guzzlord',
+ 'Gyarados',
+ 'Hakamo-o',
+ 'Happiny',
+ 'Hariyama',
+ 'Hatenna',
+ 'Hatterene',
+ 'Hattrem',
+ 'Haunter',
+ 'Hawlucha',
+ 'Haxorus',
+ 'Heatmor',
+ 'Heatran',
+ 'Heliolisk',
+ 'Helioptile',
+ 'Heracross',
+ 'Herdier',
+ 'Hippopotas',
+ 'Hippowdon',
+ 'Hitmonchan',
+ 'Hitmonlee',
+ 'Hitmontop',
+ 'Ho-Oh',
+ 'Honchkrow',
+ 'Honedge',
+ 'Hoopa',
+ 'Hoothoot',
+ 'Hoppip',
+ 'Horsea',
+ 'Houndoom',
+ 'Houndour',
+ 'Houndstone',
+ 'Huntail',
+ 'Hydreigon',
+ 'Hypno',
+ 'Igglybuff',
+ 'Illumise',
+ 'Impidimp',
+ 'Incineroar',
+ 'Indeedee',
+ 'Infernape',
+ 'Inkay',
+ 'Inteleon',
+ 'Iron Bundle',
+ 'Iron Hands',
+ 'Iron Jugulis',
+ 'Iron Leaves',
+ 'Iron Moth',
+ 'Iron Thorns',
+ 'Iron Treads',
+ 'Iron Valiant',
+ 'Ivysaur',
+ 'Jangmo-o',
+ 'Jellicent',
+ 'Jigglypuff',
+ 'Jirachi',
+ 'Jolteon',
+ 'Joltik',
+ 'Jumpluff',
+ 'Jynx',
+ 'Kabuto',
+ 'Kabutops',
+ 'Kadabra',
+ 'Kakuna',
+ 'Kangaskhan',
+ 'Karrablast',
+ 'Kartana',
+ 'Kecleon',
+ 'Keldeo',
+ 'Kilowattrel',
+ 'Kingambit',
+ 'Kingdra',
+ 'Kingler',
+ 'Kirlia',
+ 'Klang',
+ 'Klawf',
+ 'Kleavor',
+ 'Klefki',
+ 'Klink',
+ 'Klinklang',
+ 'Koffing',
+ 'Komala',
+ 'Kommo-o',
+ 'Koraidon',
+ 'Krabby',
+ 'Kricketot',
+ 'Kricketune',
+ 'Krokorok',
+ 'Krookodile',
+ 'Kubfu',
+ 'Kyogre',
+ 'Kyurem',
+ 'Lairon',
+ 'Lampent',
+ 'Landorus',
+ 'Lanturn',
+ 'Lapras',
+ 'Larvesta',
+ 'Larvitar',
+ 'Latias',
+ 'Latios',
+ 'Leafeon',
+ 'Leavanny',
+ 'Lechonk',
+ 'Ledian',
+ 'Ledyba',
+ 'Lickilicky',
+ 'Lickitung',
+ 'Liepard',
+ 'Lileep',
+ 'Lilligant',
+ 'Lillipup',
+ 'Linoone',
+ 'Litleo',
+ 'Litten',
+ 'Litwick',
+ 'Lokix',
+ 'Lombre',
+ 'Lopunny',
+ 'Lotad',
+ 'Loudred',
+ 'Lucario',
+ 'Ludicolo',
+ 'Lugia',
+ 'Lumineon',
+ 'Lunala',
+ 'Lunatone',
+ 'Lurantis',
+ 'Luvdisc',
+ 'Luxio',
+ 'Luxray',
+ 'Lycanroc',
+ 'Mabosstiff',
+ 'Machamp',
+ 'Machoke',
+ 'Machop',
+ 'Magby',
+ 'Magcargo',
+ 'Magearna',
+ 'Magikarp',
+ 'Magmar',
+ 'Magmortar',
+ 'Magnemite',
+ 'Magneton',
+ 'Magnezone',
+ 'Makuhita',
+ 'Malamar',
+ 'Mamoswine',
+ 'Manaphy',
+ 'Mandibuzz',
+ 'Manectric',
+ 'Mankey',
+ 'Mantine',
+ 'Mantyke',
+ 'Maractus',
+ 'Mareanie',
+ 'Mareep',
+ 'Marill',
+ 'Marowak',
+ 'Marshadow',
+ 'Marshtomp',
+ 'Maschiff',
+ 'Masquerain',
+ 'Maushold',
+ 'Mawile',
+ 'Medicham',
+ 'Meditite',
+ 'Meganium',
+ 'Melmetal',
+ 'Meloetta',
+ 'Meltan',
+ 'Meowscarada',
+ 'Meowstic',
+ 'Meowth',
+ 'Mesprit',
+ 'Metagross',
+ 'Metang',
+ 'Metapod',
+ 'Mew',
+ 'Mewtwo',
+ 'Mienfoo',
+ 'Mienshao',
+ 'Mightyena',
+ 'Milcery',
+ 'Milotic',
+ 'Miltank',
+ 'Mime Jr.',
+ 'Mimikyu',
+ 'Minccino',
+ 'Minior',
+ 'Minun',
+ 'Miraidon',
+ 'Misdreavus',
+ 'Mismagius',
+ 'Moltres',
+ 'Monferno',
+ 'Morelull',
+ 'Morgrem',
+ 'Morpeko',
+ 'Mothim',
+ 'Mr. Mime',
+ 'Mr. Rime',
+ 'Mudbray',
+ 'Mudkip',
+ 'Mudsdale',
+ 'Muk',
+ 'Munchlax',
+ 'Munna',
+ 'Murkrow',
+ 'Musharna',
+ 'Nacli',
+ 'Naclstack',
+ 'Naganadel',
+ 'Natu',
+ 'Necrozma',
+ 'Nickit',
+ 'Nidoking',
+ 'Nidoqueen',
+ 'Nidoran♀',
+ 'Nidoran♂',
+ 'Nidorina',
+ 'Nidorino',
+ 'Nihilego',
+ 'Nincada',
+ 'Ninetales',
+ 'Ninjask',
+ 'Noctowl',
+ 'Noibat',
+ 'Noivern',
+ 'Nosepass',
+ 'Numel',
+ 'Nuzleaf',
+ 'Nymble',
+ 'Obstagoon',
+ 'Octillery',
+ 'Oddish',
+ 'Oinkologne',
+ 'Omanyte',
+ 'Omastar',
+ 'Onix',
+ 'Oranguru',
+ 'Orbeetle',
+ 'Oricorio',
+ 'Orthworm',
+ 'Oshawott',
+ 'Overqwil',
+ 'Pachirisu',
+ 'Palafin',
+ 'Palkia',
+ 'Palossand',
+ 'Palpitoad',
+ 'Pancham',
+ 'Pangoro',
+ 'Panpour',
+ 'Pansage',
+ 'Pansear',
+ 'Paras',
+ 'Parasect',
+ 'Passimian',
+ 'Patrat',
+ 'Pawmi',
+ 'Pawmo',
+ 'Pawmot',
+ 'Pawniard',
+ 'Pelipper',
+ 'Perrserker',
+ 'Persian',
+ 'Petilil',
+ 'Phanpy',
+ 'Phantump',
+ 'Pheromosa',
+ 'Phione',
+ 'Pichu',
+ 'Pidgeot',
+ 'Pidgeotto',
+ 'Pidgey',
+ 'Pidove',
+ 'Pignite',
+ 'Pikachu',
+ 'Pikipek',
+ 'Piloswine',
+ 'Pincurchin',
+ 'Pineco',
+ 'Pinsir',
+ 'Piplup',
+ 'Plusle',
+ 'Poipole',
+ 'Politoed',
+ 'Poliwag',
+ 'Poliwhirl',
+ 'Poliwrath',
+ 'Polteageist',
+ 'Ponyta',
+ 'Poochyena',
+ 'Popplio',
+ 'Porygon',
+ 'Porygon-Z',
+ 'Porygon2',
+ 'Primarina',
+ 'Primeape',
+ 'Prinplup',
+ 'Probopass',
+ 'Psyduck',
+ 'Pumpkaboo',
+ 'Pupitar',
+ 'Purrloin',
+ 'Purugly',
+ 'Pyroar',
+ 'Pyukumuku',
+ 'Quagsire',
+ 'Quaquaval',
+ 'Quaxly',
+ 'Quaxwell',
+ 'Quilava',
+ 'Quilladin',
+ 'Qwilfish',
+ 'Raboot',
+ 'Rabsca',
+ 'Raichu',
+ 'Raikou',
+ 'Ralts',
+ 'Rampardos',
+ 'Rapidash',
+ 'Raticate',
+ 'Rattata',
+ 'Rayquaza',
+ 'Regice',
+ 'Regidrago',
+ 'Regieleki',
+ 'Regigigas',
+ 'Regirock',
+ 'Registeel',
+ 'Relicanth',
+ 'Rellor',
+ 'Remoraid',
+ 'Reshiram',
+ 'Reuniclus',
+ 'Revavroom',
+ 'Rhydon',
+ 'Rhyhorn',
+ 'Rhyperior',
+ 'Ribombee',
+ 'Rillaboom',
+ 'Riolu',
+ 'Roaring Moon',
+ 'Rockruff',
+ 'Roggenrola',
+ 'Rolycoly',
+ 'Rookidee',
+ 'Roselia',
+ 'Roserade',
+ 'Rotom',
+ 'Rowlet',
+ 'Rufflet',
+ 'Runerigus',
+ 'Sableye',
+ 'Salamence',
+ 'Salandit',
+ 'Salazzle',
+ 'Samurott',
+ 'Sandaconda',
+ 'Sandile',
+ 'Sandshrew',
+ 'Sandslash',
+ 'Sandy Shocks',
+ 'Sandygast',
+ 'Sawk',
+ 'Sawsbuck',
+ 'Scatterbug',
+ 'Sceptile',
+ 'Scizor',
+ 'Scolipede',
+ 'Scorbunny',
+ 'Scovillain',
+ 'Scrafty',
+ 'Scraggy',
+ 'Scream Tail',
+ 'Scyther',
+ 'Seadra',
+ 'Seaking',
+ 'Sealeo',
+ 'Seedot',
+ 'Seel',
+ 'Seismitoad',
+ 'Sentret',
+ 'Serperior',
+ 'Servine',
+ 'Seviper',
+ 'Sewaddle',
+ 'Sharpedo',
+ 'Shaymin',
+ 'Shedinja',
+ 'Shelgon',
+ 'Shellder',
+ 'Shellos',
+ 'Shelmet',
+ 'Shieldon',
+ 'Shiftry',
+ 'Shiinotic',
+ 'Shinx',
+ 'Shroodle',
+ 'Shroomish',
+ 'Shuckle',
+ 'Shuppet',
+ 'Sigilyph',
+ 'Silcoon',
+ 'Silicobra',
+ 'Silvally',
+ 'Simipour',
+ 'Simisage',
+ 'Simisear',
+ 'Sinistea',
+ 'Sirfetch’d',
+ 'Sizzlipede',
+ 'Skarmory',
+ 'Skeledirge',
+ 'Skiddo',
+ 'Skiploom',
+ 'Skitty',
+ 'Skorupi',
+ 'Skrelp',
+ 'Skuntank',
+ 'Skwovet',
+ 'Slaking',
+ 'Slakoth',
+ 'Sliggoo',
+ 'Slither Wing',
+ 'Slowbro',
+ 'Slowking',
+ 'Slowpoke',
+ 'Slugma',
+ 'Slurpuff',
+ 'Smeargle',
+ 'Smoliv',
+ 'Smoochum',
+ 'Sneasel',
+ 'Sneasler',
+ 'Snivy',
+ 'Snom',
+ 'Snorlax',
+ 'Snorunt',
+ 'Snover',
+ 'Snubbull',
+ 'Sobble',
+ 'Solgaleo',
+ 'Solosis',
+ 'Solrock',
+ 'Spearow',
+ 'Spectrier',
+ 'Spewpa',
+ 'Spheal',
+ 'Spidops',
+ 'Spinarak',
+ 'Spinda',
+ 'Spiritomb',
+ 'Spoink',
+ 'Sprigatito',
+ 'Spritzee',
+ 'Squawkabilly',
+ 'Squirtle',
+ 'Stakataka',
+ 'Stantler',
+ 'Staraptor',
+ 'Staravia',
+ 'Starly',
+ 'Starmie',
+ 'Staryu',
+ 'Steelix',
+ 'Steenee',
+ 'Stonjourner',
+ 'Stoutland',
+ 'Stufful',
+ 'Stunfisk',
+ 'Stunky',
+ 'Sudowoodo',
+ 'Suicune',
+ 'Sunflora',
+ 'Sunkern',
+ 'Surskit',
+ 'Swablu',
+ 'Swadloon',
+ 'Swalot',
+ 'Swampert',
+ 'Swanna',
+ 'Swellow',
+ 'Swinub',
+ 'Swirlix',
+ 'Swoobat',
+ 'Sylveon',
+ 'Tadbulb',
+ 'Taillow',
+ 'Talonflame',
+ 'Tandemaus',
+ 'Tangela',
+ 'Tangrowth',
+ 'Tapu Bulu',
+ 'Tapu Fini',
+ 'Tapu Koko',
+ 'Tapu Lele',
+ 'Tarountula',
+ 'Tatsugiri',
+ 'Tauros',
+ 'Teddiursa',
+ 'Tentacool',
+ 'Tentacruel',
+ 'Tepig',
+ 'Terrakion',
+ 'Thievul',
+ 'Throh',
+ 'Thundurus',
+ 'Thwackey',
+ 'Timburr',
+ 'Ting-Lu',
+ 'Tinkatink',
+ 'Tinkaton',
+ 'Tinkatuff',
+ 'Tirtouga',
+ 'Toedscool',
+ 'Toedscruel',
+ 'Togedemaru',
+ 'Togekiss',
+ 'Togepi',
+ 'Togetic',
+ 'Torchic',
+ 'Torkoal',
+ 'Tornadus',
+ 'Torracat',
+ 'Torterra',
+ 'Totodile',
+ 'Toucannon',
+ 'Toxapex',
+ 'Toxel',
+ 'Toxicroak',
+ 'Toxtricity',
+ 'Tranquill',
+ 'Trapinch',
+ 'Treecko',
+ 'Trevenant',
+ 'Tropius',
+ 'Trubbish',
+ 'Trumbeak',
+ 'Tsareena',
+ 'Turtonator',
+ 'Turtwig',
+ 'Tympole',
+ 'Tynamo',
+ 'Type: Null',
+ 'Typhlosion',
+ 'Tyranitar',
+ 'Tyrantrum',
+ 'Tyrogue',
+ 'Tyrunt',
+ 'Umbreon',
+ 'Unfezant',
+ 'Unown',
+ 'Ursaluna',
+ 'Ursaring',
+ 'Urshifu',
+ 'Uxie',
+ 'Vanillish',
+ 'Vanillite',
+ 'Vanilluxe',
+ 'Vaporeon',
+ 'Varoom',
+ 'Veluza',
+ 'Venipede',
+ 'Venomoth',
+ 'Venonat',
+ 'Venusaur',
+ 'Vespiquen',
+ 'Vibrava',
+ 'Victini',
+ 'Victreebel',
+ 'Vigoroth',
+ 'Vikavolt',
+ 'Vileplume',
+ 'Virizion',
+ 'Vivillon',
+ 'Volbeat',
+ 'Volcanion',
+ 'Volcarona',
+ 'Voltorb',
+ 'Vullaby',
+ 'Vulpix',
+ 'Wailmer',
+ 'Wailord',
+ 'Walking Wake',
+ 'Walrein',
+ 'Wartortle',
+ 'Watchog',
+ 'Wattrel',
+ 'Weavile',
+ 'Weedle',
+ 'Weepinbell',
+ 'Weezing',
+ 'Whimsicott',
+ 'Whirlipede',
+ 'Whiscash',
+ 'Whismur',
+ 'Wigglytuff',
+ 'Wiglett',
+ 'Wimpod',
+ 'Wingull',
+ 'Wishiwashi',
+ 'Wo-Chien',
+ 'Wobbuffet',
+ 'Woobat',
+ 'Wooloo',
+ 'Wooper',
+ 'Wormadam',
+ 'Wugtrio',
+ 'Wurmple',
+ 'Wynaut',
+ 'Wyrdeer',
+ 'Xatu',
+ 'Xerneas',
+ 'Xurkitree',
+ 'Yamask',
+ 'Yamper',
+ 'Yanma',
+ 'Yanmega',
+ 'Yungoos',
+ 'Yveltal',
+ 'Zacian',
+ 'Zamazenta',
+ 'Zangoose',
+ 'Zapdos',
+ ...]----
+
+
++*In[18]:*+
+[source, ipython3]
+----
+min(pokemon1)
+max(pokemon1)
+----
+
+
++*Out[18]:*+
+----'Zygarde'----
+
+
++*In[19]:*+
+[source, ipython3]
+----
+james=pd.read_csv(r"C:\Users\anany\Downloads\jamesbond - jamesbond (1).csv")
+----
+
+
++*In[20]:*+
+[source, ipython3]
+----
+james
+----
+
+
++*Out[20]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Film |Year |Actor |Director |Box Office |Budget |Bond Actor Salary
+|0 |Dr. No |1962 |Sean Connery |Terence Young |448.8 |7.0 |0.6
+
+|1 |From Russia with Love |1963 |Sean Connery |Terence Young |543.8
+|12.6 |1.6
+
+|2 |Goldfinger |1964 |Sean Connery |Guy Hamilton |820.4 |18.6 |3.2
+
+|3 |Thunderball |1965 |Sean Connery |Terence Young |848.1 |41.9 |4.7
+
+|4 |Casino Royale |1967 |David Niven |Ken Hughes |315.0 |85.0 |NaN
+
+|5 |You Only Live Twice |1967 |Sean Connery |Lewis Gilbert |514.2 |59.9
+|4.4
+
+|6 |On Her Majesty's Secret Service |1969 |George Lazenby |Peter R. Hunt
+|291.5 |37.3 |0.6
+
+|7 |Diamonds Are Forever |1971 |Sean Connery |Guy Hamilton |442.5 |34.7
+|5.8
+
+|8 |Live and Let Die |1973 |Roger Moore |Guy Hamilton |460.3 |30.8 |NaN
+
+|9 |The Man with the Golden Gun |1974 |Roger Moore |Guy Hamilton |334.0
+|27.7 |NaN
+
+|10 |The Spy Who Loved Me |1977 |Roger Moore |Lewis Gilbert |533.0 |45.1
+|NaN
+
+|11 |Moonraker |1979 |Roger Moore |Lewis Gilbert |535.0 |91.5 |NaN
+
+|12 |For Your Eyes Only |1981 |Roger Moore |John Glen |449.4 |60.2 |NaN
+
+|13 |Never Say Never Again |1983 |Sean Connery |Irvin Kershner |380.0
+|86.0 |NaN
+
+|14 |Octopussy |1983 |Roger Moore |John Glen |373.8 |53.9 |7.8
+
+|15 |A View to a Kill |1985 |Roger Moore |John Glen |275.2 |54.5 |9.1
+
+|16 |The Living Daylights |1987 |Timothy Dalton |John Glen |313.5 |68.8
+|5.2
+
+|17 |Licence to Kill |1989 |Timothy Dalton |John Glen |250.9 |56.7 |7.9
+
+|18 |GoldenEye |1995 |Pierce Brosnan |Martin Campbell |518.5 |76.9 |5.1
+
+|19 |Tomorrow Never Dies |1997 |Pierce Brosnan |Roger Spottiswoode
+|463.2 |133.9 |10.0
+
+|20 |The World Is Not Enough |1999 |Pierce Brosnan |Michael Apted |439.5
+|158.3 |13.5
+
+|21 |Die Another Day |2002 |Pierce Brosnan |Lee Tamahori |465.4 |154.2
+|17.9
+
+|22 |Casino Royale |2006 |Daniel Craig |Martin Campbell |581.5 |145.3
+|3.3
+
+|23 |Quantum of Solace |2008 |Daniel Craig |Marc Forster |514.2 |181.4
+|8.1
+
+|24 |Skyfall |2012 |Daniel Craig |Sam Mendes |943.5 |170.2 |14.5
+
+|25 |Spectre |2015 |Daniel Craig |Sam Mendes |726.7 |206.3 |30.0
+
+|26 |No Time to Die |2021 |Daniel Craig |Cary Joji Fukunaga |774.2
+|301.0 |25.0
+|===
+----
+
+
++*In[26]:*+
+[source, ipython3]
+----
+james1=pd.read_csv(r"C:\Users\anany\Downloads\jamesbond - jamesbond (1).csv",usecols=['Name']).squeeze('columns')
+----
+
+
++*Out[26]:*+
+----
+
+    ---------------------------------------------------------------------------
+
+    ValueError                                Traceback (most recent call last)
+
+    Cell In[26], line 1
+    ----> 1 james1=pd.read_csv(r"C:\Users\anany\Downloads\jamesbond - jamesbond (1).csv",usecols=['Name']).squeeze('columns')
+    
+
+    File D:\AnanyaAnaconda\Lib\site-packages\pandas\io\parsers\readers.py:1026, in read_csv(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)
+       1013 kwds_defaults = _refine_defaults_read(
+       1014     dialect,
+       1015     delimiter,
+       (...)
+       1022     dtype_backend=dtype_backend,
+       1023 )
+       1024 kwds.update(kwds_defaults)
+    -> 1026 return _read(filepath_or_buffer, kwds)
+    
+
+    File D:\AnanyaAnaconda\Lib\site-packages\pandas\io\parsers\readers.py:620, in _read(filepath_or_buffer, kwds)
+        617 _validate_names(kwds.get("names", None))
+        619 # Create the parser.
+    --> 620 parser = TextFileReader(filepath_or_buffer, **kwds)
+        622 if chunksize or iterator:
+        623     return parser
+    
+
+    File D:\AnanyaAnaconda\Lib\site-packages\pandas\io\parsers\readers.py:1620, in TextFileReader.__init__(self, f, engine, **kwds)
+       1617     self.options["has_index_names"] = kwds["has_index_names"]
+       1619 self.handles: IOHandles | None = None
+    -> 1620 self._engine = self._make_engine(f, self.engine)
+    
+
+    File D:\AnanyaAnaconda\Lib\site-packages\pandas\io\parsers\readers.py:1898, in TextFileReader._make_engine(self, f, engine)
+       1895     raise ValueError(msg)
+       1897 try:
+    -> 1898     return mapping[engine](f, **self.options)
+       1899 except Exception:
+       1900     if self.handles is not None:
+    
+
+    File D:\AnanyaAnaconda\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py:140, in CParserWrapper.__init__(self, src, **kwds)
+        136 assert self.orig_names is not None
+        137 if self.usecols_dtype == "string" and not set(usecols).issubset(
+        138     self.orig_names
+        139 ):
+    --> 140     self._validate_usecols_names(usecols, self.orig_names)
+        142 # error: Cannot determine type of 'names'
+        143 if len(self.names) > len(usecols):  # type: ignore[has-type]
+        144     # error: Cannot determine type of 'names'
+    
+
+    File D:\AnanyaAnaconda\Lib\site-packages\pandas\io\parsers\base_parser.py:979, in ParserBase._validate_usecols_names(self, usecols, names)
+        977 missing = [c for c in usecols if c not in names]
+        978 if len(missing) > 0:
+    --> 979     raise ValueError(
+        980         f"Usecols do not match columns, columns expected but not found: "
+        981         f"{missing}"
+        982     )
+        984 return usecols
+    
+
+    ValueError: Usecols do not match columns, columns expected but not found: ['Name']
+
+----
+
+
++*In[24]:*+
+[source, ipython3]
+----
+google=pd.read_csv(r"C:\Users\anany\Downloads\google_stock_price - google_stock_price.csv")
+----
+
+
++*In[25]:*+
+[source, ipython3]
+----
+google
+----
+
+
++*Out[25]:*+
+----
+[cols=",,",options="header",]
+|===
+| |Date |Price
+|0 |2004-08-19 |2.490664
+|1 |2004-08-20 |2.515820
+|2 |2004-08-23 |2.758411
+|3 |2004-08-24 |2.770615
+|4 |2004-08-25 |2.614201
+|... |... |...
+|4788 |2023-08-28 |132.080002
+|4789 |2023-08-29 |132.998001
+|4790 |2023-08-30 |135.570007
+|4791 |2023-08-31 |137.050003
+|4792 |2023-09-01 |138.429993
+|===
+
+4793 rows × 2 columns
+----
+
+
++*In[30]:*+
+[source, ipython3]
+----
+google=pd.read_csv(r"C:\Users\anany\Downloads\google_stock_price - google_stock_price.csv",usecols=['Price']).squeeze('columns')
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
