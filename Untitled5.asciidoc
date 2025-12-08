@@ -1,0 +1,1069 @@
++*In[1]:*+
+[source, ipython3]
+----
+import pandas as pd
+----
+
+
++*In[2]:*+
+[source, ipython3]
+----
+pd.read_csv(r"C:\Users\anany\Downloads\nba - nba.csv")
+----
+
+
++*Out[2]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|NaN
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 7 columns
+----
+
+
++*In[4]:*+
+[source, ipython3]
+----
+nba=pd.read_csv(r"C:\Users\anany\Downloads\nba - nba.csv")
+----
+
+
++*In[5]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[5]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|NaN
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 7 columns
+----
+
+
++*In[7]:*+
+[source, ipython3]
+----
+nba.drop(2) #drop full row
+----
+
+
++*Out[7]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|5 |Trent Forrest |Atlanta Hawks |G |6-4 |210.0 |Florida State |508891.0
+
+|... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|NaN
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+590 rows × 7 columns
+----
+
+
++*In[11]:*+
+[source, ipython3]
+----
+nba.insert(7,"Ananya",0)
+----
+
+
++*In[12]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[12]:*+
+----
+[cols=",,,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary |Ananya
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0 |0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0 |0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0 |0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+|0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+|0
+
+|... |... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0 |0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+|0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0 |0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|NaN |0
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|0
+|===
+
+591 rows × 8 columns
+----
+
+
++*In[13]:*+
+[source, ipython3]
+----
+nba.info()
+----
+
+
++*Out[13]:*+
+----
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 591 entries, 0 to 590
+Data columns (total 8 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   Name      591 non-null    object 
+ 1   Team      591 non-null    object 
+ 2   Position  584 non-null    object 
+ 3   Height    585 non-null    object 
+ 4   Weight    584 non-null    float64
+ 5   College   578 non-null    object 
+ 6   Salary    488 non-null    float64
+ 7   Ananya    591 non-null    int64  
+dtypes: float64(2), int64(1), object(5)
+memory usage: 37.1+ KB
+----
+
+
++*In[15]:*+
+[source, ipython3]
+----
+nba.shape
+----
+
+
++*Out[15]:*+
+----(591, 8)----
+
+
++*In[2]:*+
+[source, ipython3]
+----
+import pandas as pd
+----
+
+
++*In[3]:*+
+[source, ipython3]
+----
+nba=pd.read_csv(r"C:\Users\anany\Downloads\nba - nba.csv")
+----
+
+
++*In[4]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[4]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|NaN
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 7 columns
+----
+
+
++*In[7]:*+
+[source, ipython3]
+----
+nba.dropna (how="all")
+nba.dropna(subset=["College"])
+----
+
+
++*Out[7]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|NaN
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+578 rows × 7 columns
+----
+
+
++*In[8]:*+
+[source, ipython3]
+----
+nba["Salary"]=nba["Salary"].fillna(0)
+----
+
+
++*In[9]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[9]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|0.0
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 7 columns
+----
+
+
++*In[12]:*+
+[source, ipython3]
+----
+nba["College"]=nba["College"].fillna("Unknown")
+----
+
+
++*In[13]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[13]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+
+|... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|0.0
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|===
+
+591 rows × 7 columns
+----
+
+
++*In[15]:*+
+[source, ipython3]
+----
+nba.loc[:,['Name','Team','Position']].head()
+----
+
+
++*Out[15]:*+
+----
+[cols=",,,",options="header",]
+|===
+| |Name |Team |Position
+|0 |Saddiq Bey |Atlanta Hawks |F
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G
+|2 |Kobe Bufkin |Atlanta Hawks |G
+|3 |Clint Capela |Atlanta Hawks |C
+|4 |Bruno Fernando |Atlanta Hawks |F-C
+|===
+----
+
+
++*In[16]:*+
+[source, ipython3]
+----
+nba[['Name','Team','Position']]
+----
+
+
++*Out[16]:*+
+----
+[cols=",,,",options="header",]
+|===
+| |Name |Team |Position
+|0 |Saddiq Bey |Atlanta Hawks |F
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G
+|2 |Kobe Bufkin |Atlanta Hawks |G
+|3 |Clint Capela |Atlanta Hawks |C
+|4 |Bruno Fernando |Atlanta Hawks |F-C
+|... |... |... |...
+|586 |Jordan Poole |Washington Wizards |G
+|587 |Ryan Rollins |Washington Wizards |G
+|588 |Landry Shamet |Washington Wizards |G
+|589 |Tristan Vukcevic |Washington Wizards |F
+|590 |Delon Wright |Washington Wizards |G
+|===
+
+591 rows × 3 columns
+----
+
+
++*In[18]:*+
+[source, ipython3]
+----
+nba.loc[nba["Position"]=="G",['Name','Team','Position']]
+----
+
+
++*Out[18]:*+
+----
+[cols=",,,",options="header",]
+|===
+| |Name |Team |Position
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G
+|2 |Kobe Bufkin |Atlanta Hawks |G
+|5 |Trent Forrest |Atlanta Hawks |G
+|10 |Seth Lundy |Atlanta Hawks |G
+|11 |Garrison Mathews |Atlanta Hawks |G
+|... |... |... |...
+|584 |Kendrick Nunn |Washington Wizards |G
+|586 |Jordan Poole |Washington Wizards |G
+|587 |Ryan Rollins |Washington Wizards |G
+|588 |Landry Shamet |Washington Wizards |G
+|590 |Delon Wright |Washington Wizards |G
+|===
+
+229 rows × 3 columns
+----
+
+
++*In[19]:*+
+[source, ipython3]
+----
+nba["Salary"]*1.05
+----
+
+
++*Out[19]:*+
+----0       4784832.15
+1      19635000.00
+2       4298956.20
+3      21646800.00
+4       2710598.10
+          ...     
+586    29353124.85
+587     1805857.20
+588    10762500.00
+589           0.00
+590     8604878.10
+Name: Salary, Length: 591, dtype: float64----
+
+
++*In[21]:*+
+[source, ipython3]
+----
+nba["Salary_in"]=nba["Salary"]*1.05
+----
+
+
++*In[22]:*+
+[source, ipython3]
+----
+nba["Salary_in"]=nba["Salary"]*1.05
+----
+
+
++*In[23]:*+
+[source, ipython3]
+----
+nba
+----
+
+
++*Out[23]:*+
+----
+[cols=",,,,,,,,",options="header",]
+|===
+| |Name |Team |Position |Height |Weight |College |Salary |Salary_in
+|0 |Saddiq Bey |Atlanta Hawks |F |6-7 |215.0 |Villanova |4556983.0
+|4784832.15
+
+|1 |Bogdan Bogdanovic |Atlanta Hawks |G |6-5 |225.0 |Fenerbahce
+|18700000.0 |19635000.00
+
+|2 |Kobe Bufkin |Atlanta Hawks |G |6-5 |195.0 |Michigan |4094244.0
+|4298956.20
+
+|3 |Clint Capela |Atlanta Hawks |C |6-10 |256.0 |Elan Chalon |20616000.0
+|21646800.00
+
+|4 |Bruno Fernando |Atlanta Hawks |F-C |6-10 |240.0 |Maryland |2581522.0
+|2710598.10
+
+|... |... |... |... |... |... |... |... |...
+
+|586 |Jordan Poole |Washington Wizards |G |6-4 |194.0 |Michigan
+|27955357.0 |29353124.85
+
+|587 |Ryan Rollins |Washington Wizards |G |6-3 |180.0 |Toledo |1719864.0
+|1805857.20
+
+|588 |Landry Shamet |Washington Wizards |G |6-4 |190.0 |Wichita State
+|10250000.0 |10762500.00
+
+|589 |Tristan Vukcevic |Washington Wizards |F |6-10 |220.0 |Real Madrid
+|0.0 |0.00
+
+|590 |Delon Wright |Washington Wizards |G |6-5 |185.0 |Utah |8195122.0
+|8604878.10
+|===
+
+591 rows × 8 columns
+----
+
+
++*In[25]:*+
+[source, ipython3]
+----
+data={'Name':['Ananya','Anmol','Disha']
+      'Registration no ':['2423332','2423331','2423333']}
+       
+----
+
+
++*Out[25]:*+
+----
+
+      Cell In[25], line 1
+        data={'Name':['Ananya','Anmol','Disha']
+                     ^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    
+
+----
+
+
++*In[26]:*+
+[source, ipython3]
+----
+nba.iloc[:10,3]
+----
+
+
++*Out[26]:*+
+----0     6-7
+1     6-5
+2     6-5
+3    6-10
+4    6-10
+5     6-4
+6     6-6
+7    6-11
+8     6-8
+9     6-8
+Name: Height, dtype: object----
+
+
++*In[3]:*+
+[source, ipython3]
+----
+import pandas as pd
+----
+
+
++*In[4]:*+
+[source, ipython3]
+----
+fortune=pd.read_csv(r"C:\Users\anany\Downloads\fortune1000 - fortune1000.csv")
+----
+
+
++*In[5]:*+
+[source, ipython3]
+----
+fortune
+----
+
+
++*Out[5]:*+
+----
+[cols=",,,,,,,",options="header",]
+|===
+| |Rank |Company |Sector |Industry |Revenue |Profits |Employees
+|0 |1 |Walmart |Retailing |General Merchandisers |482130 |14694 |2300000
+
+|1 |2 |Exxon Mobil |Energy |Petroleum Refining |246204 |16150 |75600
+
+|2 |3 |Apple |Technology |Computers, Office Equipment |233715 |53394
+|110000
+
+|3 |4 |Berkshire Hathaway |Financials |Insurance: Property and Casualty
+(Stock) |210821 |24083 |331000
+
+|4 |5 |McKesson |Health Care |Wholesalers: Health Care |181241 |1476
+|70400
+
+|... |... |... |... |... |... |... |...
+
+|995 |996 |New York Community Bancorp |Financials |Commercial Banks
+|1902 |-47 |3448
+
+|996 |997 |Portland General Electric |Energy |Utilities: Gas and
+Electric |1898 |172 |2646
+
+|997 |997 |Portland General Electric |Energy |Utilities: Gas and
+Electric |1898 |172 |2646
+
+|998 |999 |Wendy’s |Hotels, Resturants & Leisure |Food Services |1896
+|161 |21200
+
+|999 |1000 |Briggs & Stratton |Industrials |Industrial Machinery |1895
+|46 |5480
+|===
+
+1000 rows × 7 columns
+----
+
+
++*In[7]:*+
+[source, ipython3]
+----
+sectors=fortune.groupby('Sector')
+----
+
+
++*In[8]:*+
+[source, ipython3]
+----
+sectors
+----
+
+
++*Out[8]:*+
+----<pandas.core.groupby.generic.DataFrameGroupBy object at 0x00000272B1A00550>----
+
+
++*In[9]:*+
+[source, ipython3]
+----
+len(sectors)
+----
+
+
++*Out[9]:*+
+----21----
+
+
++*In[10]:*+
+[source, ipython3]
+----
+sectors.size()
+----
+
+
++*Out[10]:*+
+----Sector
+Aerospace & Defense              20
+Apparel                          15
+Business Services                51
+Chemicals                        30
+Energy                          122
+Engineering & Construction       26
+Financials                      139
+Food and Drug Stores             15
+Food, Beverages & Tobacco        43
+Health Care                      75
+Hotels, Resturants & Leisure     25
+Household Products               28
+Industrials                      46
+Materials                        43
+Media                            25
+Motor Vehicles & Parts           24
+Retailing                        80
+Technology                      102
+Telecommunications               15
+Transportation                   36
+Wholesalers                      40
+dtype: int64----
+
+
++*In[11]:*+
+[source, ipython3]
+----
+sectors.first()
+----
+
+
++*Out[11]:*+
+----
+[cols=",,,,,,",options="header",]
+|===
+| |Rank |Company |Industry |Revenue |Profits |Employees
+|Sector | | | | | |
+
+|Aerospace & Defense |24 |Boeing |Aerospace and Defense |96114 |5176
+|161400
+
+|Apparel |91 |Nike |Apparel |30601 |3273 |62600
+
+|Business Services |144 |ManpowerGroup |Temporary Help |19330 |419
+|27000
+
+|Chemicals |56 |Dow Chemical |Chemicals |48778 |7685 |49495
+
+|Energy |2 |Exxon Mobil |Petroleum Refining |246204 |16150 |75600
+
+|Engineering & Construction |155 |Fluor |Engineering, Construction
+|18114 |413 |38758
+
+|Financials |4 |Berkshire Hathaway |Insurance: Property and Casualty
+(Stock) |210821 |24083 |331000
+
+|Food and Drug Stores |7 |CVS Health |Food and Drug Stores |153290 |5237
+|199000
+
+|Food, Beverages & Tobacco |41 |Archer Daniels Midland |Food Production
+|67702 |1849 |32300
+
+|Health Care |5 |McKesson |Wholesalers: Health Care |181241 |1476 |70400
+
+|Hotels, Resturants & Leisure |109 |McDonald’s |Food Services |25413
+|4529 |420000
+
+|Household Products |34 |Procter & Gamble |Household and Personal
+Products |78756 |7036 |110000
+
+|Industrials |11 |General Electric |Industrial Machinery |140389 |-6126
+|333000
+
+|Materials |126 |Alcoa |Metals |22534 |-322 |60000
+
+|Media |53 |Disney |Entertainment |52465 |8382 |185000
+
+|Motor Vehicles & Parts |8 |General Motors |Motor Vehicles and Parts
+|152356 |9687 |215000
+
+|Retailing |1 |Walmart |General Merchandisers |482130 |14694 |2300000
+
+|Technology |3 |Apple |Computers, Office Equipment |233715 |53394
+|110000
+
+|Telecommunications |10 |AT&T |Telecommunications |146801 |13345 |281450
+
+|Transportation |48 |UPS |Mail, Package, and Freight Delivery |58363
+|4844 |341240
+
+|Wholesalers |57 |Sysco |Wholesalers: Food and Grocery |48681 |687
+|51700
+|===
+----
+
+
++*In[12]:*+
+[source, ipython3]
+----
+sectors.last()
+----
+
+
++*Out[12]:*+
+----
+[cols=",,,,,,",options="header",]
+|===
+| |Rank |Company |Industry |Revenue |Profits |Employees
+|Sector | | | | | |
+
+|Aerospace & Defense |987 |Delta Tucker Holdings |Aerospace and Defense
+|1923 |-133 |12000
+
+|Apparel |917 |Guess |Apparel |2204 |82 |13500
+
+|Business Services |993 |DeVry Education Group |Education |1910 |140
+|11770
+
+|Chemicals |949 |H.B. Fuller |Chemicals |2084 |87 |4425
+
+|Energy |997 |Portland General Electric |Utilities: Gas and Electric
+|1898 |172 |2646
+
+|Engineering & Construction |994 |MDC Holdings |Homebuilders |1909 |66
+|1225
+
+|Financials |996 |New York Community Bancorp |Commercial Banks |1902
+|-47 |3448
+
+|Food and Drug Stores |928 |Fred’s |Food and Drug Stores |2151 |-7 |7103
+
+|Food, Beverages & Tobacco |954 |Alliance One International |Tobacco
+|2066 |-15 |6835
+
+|Health Care |978 |Providence Service |Health Care: Pharmacy and Other
+Services |1987 |84 |9072
+
+|Hotels, Resturants & Leisure |999 |Wendy’s |Food Services |1896 |161
+|21200
+
+|Household Products |992 |Revlon |Household and Personal Products |1914
+|56 |5700
+
+|Industrials |1000 |Briggs & Stratton |Industrial Machinery |1895 |46
+|5480
+
+|Materials |986 |Schnitzer Steel Industries |Metals |1924 |-197 |2955
+
+|Media |989 |Cenveo |Publishing, Printing |1921 |-31 |7300
+
+|Motor Vehicles & Parts |979 |Allison Transmission Holdings |Motor
+Vehicles and Parts |1986 |182 |2700
+
+|Retailing |973 |99 Cents Only Stores |Specialty Retailers: Other |1999
+|-232 |18200
+
+|Technology |990 |F5 Networks |Network and Other Communications
+Equipment |1920 |365 |4178
+
+|Telecommunications |786 |Equinix |Telecommunications |2726 |188 |5042
+
+|Transportation |974 |Roadrunner Transportation Systems |Transportation
+and Logistics |1995 |48 |4502
+
+|Wholesalers |991 |BlueLinx Holdings |Wholesalers: Diversified |1917
+|-12 |1600
+|===
+----
+
+
++*In[21]:*+
+[source, ipython3]
+----
+sectors.sum()
+----
+
+
++*Out[21]:*+
+----
+[cols=",,,,,,",options="header",]
+|===
+| |Rank |Company |Industry |Revenue |Profits |Employees
+|Sector | | | | | |
+
+|Aerospace & Defense |8870 |BoeingUnited TechnologiesLockheed
+MartinGenera... |Aerospace and DefenseAerospace and DefenseAero...
+|357940 |28742 |968057
+
+|Apparel |8757 |NikeVFPVHRalph LaurenHanesbrandsLevi StraussCo...
+|ApparelApparelApparelApparelApparelApparelAppa... |95968 |8236 |346397
+
+|Business Services |31074 |ManpowerGroupOmnicom GroupAramarkVisaWaste
+Man... |Temporary HelpAdvertising, marketingDiversifie... |272195 |28227
+|1361050
+
+|Chemicals |15928 |Dow ChemicalDuPontPPG IndustriesMonsantoEcolab...
+|ChemicalsChemicalsChemicalsChemicalsChemicalsC... |243897 |22628
+|463651
+
+|Energy |62199 |Exxon MobilChevronPhillips 66Valero EnergyMara...
+|Petroleum RefiningPetroleum RefiningPetroleum ... |1517809 |-73447
+|1188927
+
+|Engineering & Construction |15147 |FluorAECOMJacobs Engineering
+GroupD.R. HortonL... |Engineering, ConstructionEngineering, Construc...
+|153983 |5304 |406708
+
+|Financials |63566 |Berkshire HathawayFannie MaeJ.P. Morgan ChaseB...
+|Insurance: Property and Casualty (Stock)Divers... |2217159 |260209
+|3359948
+
+|Food and Drug Stores |6429 |CVS HealthKrogerWalgreens Boots
+AlliancePublix... |Food and Drug StoresFood and Drug StoresFood a...
+|483769 |16759 |1395398
+
+|Food, Beverages & Tobacco |18629 |Archer Daniels
+MidlandPepsiCoCoca-ColaTyson Fo... |Food ProductionFood Consumer
+ProductsBeverages... |555967 |51417 |1211632
+
+|Health Care |31770 |McKessonUnitedHealth GroupAmerisourceBergenCar...
+|Wholesalers: Health CareHealth Care: Insurance... |1614707 |106114
+|2678289
+
+|Hotels, Resturants & Leisure |14039 |McDonald’sStarbucksMarriott
+InternationalYum B... |Food ServicesFood ServicesHotels, Casinos, Res...
+|169546 |20697 |2484245
+
+|Household Products |15749 |Procter &
+GambleKimberly-ClarkColgate-Palmoliv... |Household and Personal
+ProductsHousehold and P... |234737 |14428 |646038
+
+|Industrials |26988 |General ElectricCaterpillarHoneywell Internati...
+|Industrial MachineryConstruction and Farm Mach... |497581 |20764
+|1545229
+
+|Materials |23343 |AlcoaInternational PaperNucorUnited States Ste...
+|MetalsPackaging, ContainersMetalsMetalsPackagi... |259145 |4428 |638123
+
+|Media |13976 |DisneyTwenty-First Century FoxTime WarnerCBSVi...
+|EntertainmentEntertainmentEntertainmentEnterta... |220764 |24347
+|550314
+
+|Motor Vehicles & Parts |11408 |General MotorsFord MotorJohnson
+ControlsPaccar... |Motor Vehicles and PartsMotor Vehicles and Par...
+|482540 |25898 |1082560
+
+|Retailing |35651 |WalmartCostcoHome DepotTargetLowe’sBest BuyTJX...
+|General MerchandisersSpecialty Retailers: Othe... |1465076 |47830
+|6227629
+
+|Technology |56902 |AppleAmazon.comHPMicrosoftIBMAlphabetIntelCisc...
+|Computers, Office EquipmentInternet Services a... |1377600 |180473
+|3578949
+
+|Telecommunications |4877 |AT&TVerizonComcastTime Warner
+CableCenturyLink... |TelecommunicationsTelecommunicationsTelecommun...
+|461834 |48637 |832468
+
+|Transportation |18349 |UPSFedExAmerican Airlines GroupDelta Air
+Lines... |Mail, Package, and Freight DeliveryMail, Packa... |408508
+|44169 |1536793
+
+|Wholesalers |16845 |SyscoIngram MicroWorld Fuel ServicesAvnetTech ...
+|Wholesalers: Food and GroceryWholesalers: Elec... |444800 |8233 |525597
+|===
+----
+
+
++*In[27]:*+
+[source, ipython3]
+----
+sectors.get_group('Energy')['Profits'].sum()
+----
+
+
++*Out[27]:*+
+----np.int64(-73447)----
+
+
++*In[28]:*+
+[source, ipython3]
+----
+sectors['Profits'].sum()
+----
+
+
++*Out[28]:*+
+----Sector
+Aerospace & Defense              28742
+Apparel                           8236
+Business Services                28227
+Chemicals                        22628
+Energy                          -73447
+Engineering & Construction        5304
+Financials                      260209
+Food and Drug Stores             16759
+Food, Beverages & Tobacco        51417
+Health Care                     106114
+Hotels, Resturants & Leisure     20697
+Household Products               14428
+Industrials                      20764
+Materials                         4428
+Media                            24347
+Motor Vehicles & Parts           25898
+Retailing                        47830
+Technology                      180473
+Telecommunications               48637
+Transportation                   44169
+Wholesalers                       8233
+Name: Profits, dtype: int64----
+
+
++*In[32]:*+
+[source, ipython3]
+----
+sectors.agg
+----
+
+
++*Out[32]:*+
+----<bound method DataFrameGroupBy.aggregate of <pandas.core.groupby.generic.DataFrameGroupBy object at 0x00000272B1A00550>>----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+sectors.agg({})
+----
